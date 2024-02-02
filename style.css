@@ -1,0 +1,100 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    overflow:hidden;
+  }
+  
+  *{
+    box-sizing: border-box;
+    font-family: Helvetica;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #eee;
+  }
+  
+  .lanes {
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px
+  }
+  
+  .lane {
+    background-color: #fff;
+    padding: 0px;
+    gap: 10px;
+    flex: 1;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px #7a7a7a;
+  }
+
+  .lane .title {
+    box-shadow: 0px 10px 10px -10px #9e9e9e;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
+  
+  .drag-location {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 10px;
+    transition: 0.2s ease-in-out height;
+    min-height: 20px;
+    padding: 5px;
+    border-radius: 0;
+    padding: 20px;
+  }
+
+  .selected-drop-area {
+    border: 1px dashed #7a7a7a;
+    border-radius: 10px;
+    display: block;
+    pointer-events: none!important;
+  }
+
+  .draggable {
+    width: 100%;
+    background-color: #eee;
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px #9e9e9e;
+    cursor: grab;
+    font-size: 18px;
+  }
+
+  .draggable-no-events {
+    width: 100%;
+    background-color: #eee;
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px #9e9e9e;
+    cursor: grab;
+    font-size: 18px;
+    pointer-events: none;
+  }
+  
+  .isdragging {
+    background-color: #333;
+    color: #fff;
+    cursor: grabbing;
+    box-shadow: 0px 10px 10px #333;
+    z-index: 1;
+    pointer-events: none;
+}
