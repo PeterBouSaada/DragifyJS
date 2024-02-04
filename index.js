@@ -231,14 +231,22 @@ document.addEventListener('mouseup', (e) => {
                     clearInterval(mouseInterval);
                 }
 
-                const bounds = selected.getBoundingClientRect();
-                const left = Math.round(bounds.left);
-                const top = Math.round(bounds.top);
-
-                const topComparison = followingElement.offsetTop - top;
-                const leftComparison = followingElement.offsetLeft - left;
-                const topValid = (topComparison >= 0 && topComparison <= 2) || (topComparison <= 0 && topComparison >= -2);
-                const leftValid = (leftComparison >= 0 && leftComparison <= 2) || (leftComparison <= 0 && leftComparison >= -2)
+                let topValid, leftValid, leftComparison, topComparison, bounds, left, top;
+                if(followingElement && selected)
+                {
+                    bounds = selected.getBoundingClientRect();
+                    left = Math.round(bounds.left);
+                    top = Math.round(bounds.top);
+                    topComparison = followingElement.offsetTop - top;
+                    leftComparison = followingElement.offsetLeft - left;
+                    topValid = (topComparison >= 0 && topComparison <= 2) || (topComparison <= 0 && topComparison >= -2);
+                    leftValid = (leftComparison >= 0 && leftComparison <= 2) || (leftComparison <= 0 && leftComparison >= -2)
+                }
+                else
+                {
+                    clearInterval(animationInterval);
+                    return;
+                }
 
                 if(topValid && leftValid)
                 {
